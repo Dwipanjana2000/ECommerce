@@ -1,38 +1,46 @@
+
+
 const cart_items = document.querySelector('#cart .cart-items');
 
 
 const parentNode = document.getElementById('music-content');
 
 
-window.addEventListener('load', () => {
-    console.log('loaded');
-
-    axios.get('http://localhost:3000/products').then((products) => {
-        console.log(products)
-        products.data.forEach(product => {
-            const productHtml = `
-                <div id="album-${product.id}">
-                    <h3>${product.title}</h3>
-                    <div class="image-container">
-                        <img class="prod-images" src=${product.imageUrl} alt="">
-                    </div>
-                                    <div class="prod-details">
-                        <span>$<span>${product.price}</span></span>
-                        <button class="shop-item-button" type='button'>ADD TO CART</button>
-                    </div>
-                </div> `
-            parentNode.innerHTML += productHtml
-
-        })
+window.addEventListener('DOMContentLoaded',()=>{
+    axios.get('http://localhost:5500/products').then((data)=>{
+        console.log(data)
     })
-
 })
+
+// window.addEventListener('load', () => {
+//     console.log('loaded');
+
+//     axios.get('http://localhost:5500/admin/add-products').then((products) => {
+//         console.log(products)
+//         products.data.forEach(product => {
+//             const productHtml = `
+//                 <div id="album-${product.id}">
+//                     <h3>${product.title}</h3>
+//                     <div class="image-container">
+//                         <img class="prod-images" src=${product.imageUrl} alt="">
+//                     </div>
+//                                     <div class="prod-details">
+//                         <span>$<span>${product.price}</span></span>
+//                         <button class="shop-item-button" type='button'>ADD TO CART</button>
+//                     </div>
+//                 </div> `
+//             parentNode.innerHTML += productHtml
+
+//         })
+//     })
+
+// })
 
 document.addEventListener('click',(e)=>{
 
     if (e.target.className=='shop-item-button'){
         const prodId = Number(e.target.parentNode.parentNode.id.split('-')[1]);
-        axios.post('http://localhost:3000/cart', { productId: prodId}).then(data => {
+        axios.post('http://localhost:5500/shop', { productId: prodId}).then(data => {
             if(data.data.error){
                 throw new Error('Unable to add product');
             }
@@ -45,7 +53,7 @@ document.addEventListener('click',(e)=>{
 
     }
     if (e.target.className=='cart-btn-bottom' || e.target.className=='cart-bottom' || e.target.className=='cart-holder'){
-        axios.get('http://localhost:3000/cart').then(carProducts => {
+        axios.get('http://localhost:5500/admin/add-product').then(carProducts => {
             showProductsInCart(carProducts.data);
             document.querySelector('#cart').style = "display:block;"
 
@@ -89,7 +97,7 @@ function showProductsInCart(listofproducts){
 }
 function deleteCartItem(e, prodId){
     e.preventDefault();
-    axios.post('http://localhost:3000/cart-delete-item', {productId: prodId})
+    axios.post('http://localhost:5500/cart-delete-item', {productId: prodId})
         .then(() => removeElementFromCartDom(prodId))
 }
 
