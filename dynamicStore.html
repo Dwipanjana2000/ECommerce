@@ -4,27 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Commerce Project</title>
-    <link rel="stylesheet" href="./cartLayOut.css">
+    <link rel="stylesheet" href="/style.css">
   
-    
 </head>
 <body>
     <header>
-        <ul class='header'>
-            <li><a href="./cartLayOut.html">HOME</a></li>
+        <ul>
+            <li><a href="/index.html">HOME</a></li>
             <li><a href="#">STORE</a></li>
-            <li><a href="./about.html">ABOUT</a></li>
+            <li><a href="/about.html">ABOUT</a></li>
             <a href="#cart" class="cart-holder">cart<span class='cart-number'>0</span></a>
         </ul>
         <h1>The Generics</h1>
     </header>
-
+    
     <section id="music" class="container">
         <h2>MUSIC</h2>
-        <div id ="music-content"> </div>
-
-
-    </section>
+        <!-- <div id ="music-content"> -->
+            <!-- <div id='album1'>
+                <h3>Album 1</h3>
+                <div class="image-container">
+                    <img class="prod-images" src="https://prasadyash2411.github.io/ecom-website/img/Album%201.png" alt="">
+                </div>
+                                <div class="prod-details">
+                    <span>$<span>12.99</span></span>
+                    <button class="shop-item-button" type='button'>ADD TO CART</button>
+                </div>
+            </div>
+            <div id='album2'>
+                <h3>Album 2</h3>
+                <div class="image-container">
+                    <img class="prod-images" src="https://prasadyash2411.github.io/ecom-website/img/Album%202.png" alt="">
+                </div>
+                                <div class="prod-details">
+                    <span>$<span>14.99</span></span>
+                    <button class="shop-item-button" type='button'>ADD TO CART</button>
+                </div>
+            </div>
+            <div id='album3'>
+                <h3>Album 3</h3>
+                <div class="image-container">
+                    <img class="prod-images" src="https://prasadyash2411.github.io/ecom-website/img/Album%203.png" alt="">
+                </div>
+                                <div class="prod-details">
+                    <span>$<span>9.99</span></span>
+                    <button class="shop-item-button" type='button'>ADD TO CART</button>
+                </div>
+            </div>
+            <div id='album4'>
+                <h3>Album 4</h3>
+                <div class="image-container">
+                    <img class="prod-images" src="https://prasadyash2411.github.io/ecom-website/img/Album%204.png" alt="">
+                </div>
+                                <div class="prod-details">
+                    <span>$<span>19.99</span></span>
+                    <button class="shop-item-button" type='button'>ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        
+    </section> -->
+    <section id="merch" class="container">
+        <h2>MERCH</h2>
+        <!-- <div id="merch-content"> -->
+            <!-- <div id="t-shirt">
+                <h3>T-Shirt</h3>
+                <div class="image-container">
+                    <img class="prod-images" src="https://prasadyash2411.github.io/ecom-website/img/Shirt.png" alt="">
+                </div>
+                              <div class="prod-details">
+                    <span>$<span>19.99</span></span>
+                    <button class="shop-item-button" type='button'>ADD TO CART</button>
+                </div>
+            </div>
+            <div id="coffee-cup">
+                <h3>Coffee Cup</h3>
+                <div class="image-container">
+                    <img class="prod-images" src="https://prasadyash2411.github.io/ecom-website/img/Cofee.png" alt="">
+                </div>
+                              <div class="prod-details">
+                    <span>$<span>6.99</span></span>
+                    <button class="shop-item-button" type='button'>ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+        
+    </section> -->
     <section id="cart" class="container">
         <h2>CART</h2>
         <button class="cancel">X</button>
@@ -34,10 +99,39 @@
             <span class='cart-quantity cart-column'>QUANTITY</span>
         </div>
         <div class='cart-items'>
+            <!-- <div class="cart-row">
+                <span class='cart-item cart-column'>
+                    <img class='cart-img' src="img/Shirt.png" alt="">
+                    <span>T-Shirt</span>
+                </span>
+                <span class='cart-price cart-column'>$19.99</span>
+                <span class='cart-quantity cart-column'>
+                    <input type="text">
+                    <button>REMOVE</button>
+                </span>
+            </div>
+            <div class="cart-row">
+                <span class='cart-item cart-column'>
+                    <img class='cart-img' src="/img/Album 3.png" alt="">
+                    <span>Album 3</span>
+                </span>
+                <span class='cart-price cart-column'>$9.99</span>
+                <span class='cart-quantity cart-column'>
+                    <input type="text">
+                    <button>REMOVE</button>
+                </span>
+            </div> -->
+        </div>
+        <div class="cart-total">
+            <span>
+                <span class='total-title'> <strong>Total</strong>
+                    </span>
+                $<span id='total-value'>0</span>   
+            </span>
         </div>
         <button class='purchase-btn' type='button'>PURCHASE</button>
     </section>
-
+    
         <button class="cart-btn-bottom"> <a href="#cart" class="cart-bottom">See the cart</a></button>
 
     <!-- Toggle notification -->
@@ -49,19 +143,18 @@
         <div class="footer-icons">
             <ul>
                 <li><a href="https://www.youtube.com">
-                    <img src="https://images.unsplash.com/photo-1653794719441-350f63d49de2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDJ8cm5TS0RId3dZVWt8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60" alt="">
+                    <img src="https://prasadyash2411.github.io/ecom-website/img/6260efc8fc9a9002669d2f4ad9956cc0.jpg" alt="">
                 </a></li>
                 <li><a href="https://spotify.com">
-                    <img src="https://images.unsplash.com/photo-1655088853536-882a0b83c151?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDF8NnNNVmpUTFNrZVF8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60" alt="">
+                    <img src="https://prasadyash2411.github.io/ecom-website/img/Spotify%20Logo.png" alt="">
                 </a></li>
                 <li><a href="https://facebook.com">
-                    <img src="https://images.unsplash.com/photo-1655055605697-18493b4321a2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDN8aG1lbnZRaFVteE18fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60" alt="">
+                    <img src="https://prasadyash2411.github.io/ecom-website/img/Facebook%20Logo.png" alt="">
                 </a></li>
             </ul>
         </div>
     </footer>
-  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js" ></script>
-    <script src="./cartLayOut.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
+    <script src="/index.js" defer></script>
 </body>
 </html>
