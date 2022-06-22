@@ -72,7 +72,8 @@ document.addEventListener('click',(e)=>{
     }
 })
 
-
+const orders=document.getElementById('show-orders')
+orders.addEventListener('click',showOrders)
 window.addEventListener('DOMContentLoaded',()=>{
     axios.get('http://localhost:5500/products')
     .then(data=>{
@@ -170,4 +171,31 @@ function notifyUser(message){
     setTimeout(()=>{
         notification.remove();
     },2500)
+}
+function notifyUser3(message){
+   
+       
+    const container = document.getElementById('container');
+    const notification = document.createElement('div');
+    notification.classList.add('notification');
+    notification.innerHTML = `<h4>${message} has been ordered<h4>`;
+    container.appendChild(notification);
+    
+}
+function showOrders(){
+    axios.get('http://localhost:5500/orders')
+    .then(response=>{
+        if(response.status=== 200){
+            response.data.orders.forEach(order=>{
+                notifyUser3(order.id)
+               })
+        }
+           })
+           
+    
+        
+    
+    .catch(err=>{
+        notifyUser(err)
+    })
 }
