@@ -1,4 +1,6 @@
 
+
+
 const cart_items = document.querySelector('#cart .cart-items');
 const cart=document.querySelector('#cart')
 document.addEventListener('click',(e)=>{
@@ -96,6 +98,7 @@ function addToCart(productId){
 axios.post('http://localhost:5500/cart',{productId:productId})
 .then(response=>{
     if(response.status===200){
+
         notifyUser(response.data.message)
     }else{
         throw new Error()
@@ -110,7 +113,8 @@ function getCartDetails(){
         if(response.status===200){
             response.data.products.forEach(product=>{
                 const cartContainer=document.getElementById('cart')
-                cartContainer.innerHTML += `<li>${product.title}--${product.price}--${product.CartItem.quantity}</li>`
+                cartContainer.innerHTML += `<li>${product.title}--${product.price}--${product.CartItem.quantity}</li>
+                <button onClick="StoreData()">Order Now</button>`
 
             })
             document.querySelector('#cart').style = "display:block;" 
@@ -124,8 +128,40 @@ function getCartDetails(){
      notifyUser(err)
     })
 }
-function notifyUser(message){
+function notifyUser2(message){
 
+    const container = document.getElementById('container');
+    const notification = document.createElement('div');
+    notification.classList.add('notification');
+    notification.innerHTML = `<h4>${message} has been ordered<h4>`;
+    container.appendChild(notification);
+    setTimeout(()=>{
+        notification.remove();
+    },2500)
+}
+function StoreData(){
+    axios.post('http://localhost:5500/create-order')
+    .then(response =>{
+        if(response.status===200){
+            console.log(response)
+        }
+    })
+    .catch(err=>{console.log(err)})
+    axios.get('http://localhost:5500/orders')
+    .then(response=>{
+        if(response.status=== 200){
+            console.log(response)
+           response.data.orders.forEach(order=>{
+            notifyUser2(order.id)
+           })
+           
+    
+        }
+    })
+}
+function notifyUser(message){
+   
+       
     const container = document.getElementById('container');
     const notification = document.createElement('div');
     notification.classList.add('notification');
